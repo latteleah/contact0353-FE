@@ -5,6 +5,7 @@ import AddUser from '../views/AddUser.vue'
 import UpdateUser from '../views/UpdateUser.vue'
 import Login from '../views/Login.vue'
 import Logout from '../components/Logout.vue'
+
 import AppV from '../App.vue'
 
 const router = createRouter({
@@ -12,7 +13,7 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      redirect: '/about'
+      redirect: '/users'
     },
     {
       path: '/login',
@@ -26,16 +27,16 @@ const router = createRouter({
     },
     {
       path: '/:catchAll(.*)', //if user go to undefined path in this list
-      redirect: '/about'
+      redirect: '/users'
     },
-    {
+    /*{
       path: '/about',
       name: 'about',
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/AboutView.vue')
-    },
+    },*/
     {
       path: '/users',
       name: 'users',

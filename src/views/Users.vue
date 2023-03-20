@@ -1,50 +1,49 @@
 <template>
   <div class="users">
-    <h1>User page</h1>
-    <v-container>
-      <v-row>
-        <v-col>
-        <v-text-field
-            v-model="search"
-            label="Filter by first/last name"
-            outlined
-            dense
-        ></v-text-field>
-        </v-col>
-      </v-row>
-    </v-container>
-    <table class="table table-striped">
-      <tr>
-        <th scope="col">First name</th>
-        <th scope="col">Middle name</th>
-        <th scope="col">Last name</th>
-        <th scope="col">Gender</th>
-        <th scope="col">Email</th>
-        <th scope="col">Mobile</th>
-        <th scope="col">Action</th>
-      </tr>
-      <tbody>
-      <tr v-for="auser in filterUsers" v-bind:key="auser.id">
-        <td>{{auser.firstName}}</td>
-        <td>{{auser.middleName}}</td>
-        <td>{{auser.lastName}}</td>
-        <td>{{auser.gender}}</td>
-        <td>{{auser.email}}</td>
-        <td>{{auser.mobile}}</td>
-        <td>
-          <router-link :to="{path:'updateuser' , name: 'updateuser', params: {userId: auser.contactID}}">
-            <button type="button" class="btn btn-warning">Edit</button>
-          </router-link>
-          <button type="button" class="btn btn-danger" @click="deleteUser(auser.contactID)">Delete</button>
-        </td>
-      </tr>
-      </tbody>
-    </table>
-    <v-container>
-    <router-link to="adduser">
-      <button type="button" class="btn btn-primary-light">Add user</button>
-    </router-link>
-    </v-container>
+
+    <!--    search bar-->
+
+    <div class="container-search">
+      <div class="search-bar">
+        <sui-input fluid action="Search" v-model="search" placeholder="Filter by first/last name" />
+      </div>
+      <div class="add-button">
+        <router-link :to="{path:'adduser'}">
+          <sui-button fluid color="orange">+ Add</sui-button>
+        </router-link>
+      </div>
+    </div>
+
+    <!--    body-->
+
+    <div class="container-card">
+      <div class="card-box">
+        <v-row>
+          <v-col cols="4" v-for="auser in filterUsers" v-bind:key="auser.id" class="d-flex">
+            <v-card class="elevation-5 flex d-flex flex-column"
+                    max-width="374" >
+              <v-img
+                  :src="getImage(auser.gender)"
+                  class="white--text align-end"
+                  height="250"
+                  width="250"
+              ></v-img>
+              <v-card-title class="flex-grow-1">{{auser.firstName}}  {{auser.lastName}} </v-card-title>
+              <v-card-subtitle class="flex-grow-1">Mobile :{{auser.mobile}}</v-card-subtitle>
+              <v-card-subtitle class="flex-grow-1"> Email :{{auser.email}}</v-card-subtitle>
+              <v-card-actions>
+                <router-link :to="{path:'updateuser' , name: 'updateuser', params: {userId: auser.contactID}}">
+                  <button type="button" style="color: white" class="btn btn-primary">Edit</button>
+                </router-link>
+                <v-spacer></v-spacer>
+                <button type="button" style="color: white"  class="btn btn-danger" @click="deleteUser(auser.contactID)">Delete</button>
+              </v-card-actions>
+            </v-card>
+          </v-col>
+        </v-row>
+      </div>
+    </div>
+
   </div>
 </template>
 
@@ -58,6 +57,12 @@ export default {
     return {
       search: '',
       Users : [],
+      maleImages : ["https://nightswinger.github.io/vue-fomantic-ui/images/avatar/large/elliot.jpg",
+        "https://nightswinger.github.io/vue-fomantic-ui/images/avatar/large/matthew.png",
+        "https://nightswinger.github.io/vue-fomantic-ui/images/avatar/large/steve.jpg"],
+      femaleImages : ["https://nightswinger.github.io/vue-fomantic-ui/images/avatar/large/helen.jpg",
+        "https://nightswinger.github.io/vue-fomantic-ui/images/avatar/large/stevie.jpg",
+        "https://nightswinger.github.io/vue-fomantic-ui/images/avatar/large/molly.png"],
       uid: ''
     }
   },
@@ -94,6 +99,18 @@ export default {
           .catch((error)=>{
             console.log(error)
           })
+    },
+    getImage(gender){
+      let arrayIndex = Math.floor(Math.random() * 2);
+      console.log(gender)
+      console.log(arrayIndex)
+      if(gender === 'M'){
+        console.log(this.maleImages[arrayIndex])
+        return this.maleImages[arrayIndex]
+      }
+      else{
+        return this.femaleImages[arrayIndex]
+      }
     }
   }
 }
@@ -102,9 +119,41 @@ export default {
 <style>
 .users {
   min-height: 100vh;
-  padding-top: 80px;
+  padding-top: 30px;
   display: block;
   align-items: center;
+}
+.container-search {  display: grid;
+  grid-template-columns: 0.2fr 3.4fr 0.2fr 0.2fr;
+  grid-template-rows: 0.2fr 2.6fr 0.2fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    ". . . ."
+    ". search-bar add-button ."
+    ". . . .";
+}
+
+.search-bar { grid-area: search-bar; }
+
+.add-button { grid-area: add-button; }
+
+
+.container-card {  display: grid;
+  grid-template-columns: 0.2fr 2.6fr 0.2fr;
+  grid-template-rows: 0.2fr 2.6fr 0.2fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    ". . ."
+    ". card-box ."
+    ". . .";
+}
+
+.card-box { grid-area: card-box; }
+
+.card-group {
+  padding: 2rem;
 }
 </style>
 

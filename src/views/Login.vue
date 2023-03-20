@@ -1,30 +1,32 @@
 <template>
   <h1>Login</h1>
-  <v-container id="container">
-    <v-form ref="form" v-model="valid" lazy-validation>
-      <v-text-field
-          v-model="username"
-          :rules="identifierRules"
-          label="Username"
-          required
-      ></v-text-field>
+  <div class="login">
 
-      <v-text-field
-          v-model="password"
-          :rules="passwordRules"
-          label="Password"
-          type="password"
-          required
-      ></v-text-field>
+    <v-container id="container">
+      <v-form ref="form" v-model="valid" lazy-validation>
+        <v-text-field
+            v-model="username"
+            :rules="identifierRules"
+            label="Username"
+            required
+        ></v-text-field>
 
-      <v-btn :disabled="!valid" color="#f7bedb" class="mr-4" @click="submit">
-        Login
-      </v-btn>
+        <v-text-field
+            v-model="password"
+            :rules="passwordRules"
+            label="Password"
+            type="password"
+            required
+        ></v-text-field>
 
-      <v-btn color="#bedff7" class="mr-4" @click="reset"> Reset </v-btn>
-    </v-form>
-  </v-container>
+        <v-btn :disabled="!valid" color="#f7bedb" class="mr-4" @click="submit">
+          Login
+        </v-btn>
 
+        <v-btn color="#bedff7" class="mr-4" @click="reset"> Reset </v-btn>
+      </v-form>
+    </v-container>
+  </div>
 </template>
 
 <script>
@@ -71,11 +73,16 @@ export default {
 };
 </script>
 <style>
- h1{
+h1{
   padding-top: 100px;
 }
 #container{
   padding-top: 50px;
 }
-
+@media (min-width: 600px) {
+  .login {
+    display: inline-grid;
+    align-items: center;
+  }
+}
 </style>

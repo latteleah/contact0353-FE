@@ -1,6 +1,6 @@
 <template>
   <div class="adduser">
-    <h1>Add User page</h1>
+    <h1>Add User</h1>
     <v-container>
       <v-form ref="form" v-model="valid" lazy-validation>
         <v-text-field
@@ -116,10 +116,14 @@ export default{
 </script>
 <style>
 
+.adduser {
+  align-items: center;
+}
+@media (min-width: 600px) {
   .adduser {
-    min-height: 100vh;
-    padding-top: 80px;
+    display: inline-grid;
     align-items: center;
   }
+}
 
 </style>

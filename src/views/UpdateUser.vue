@@ -1,5 +1,5 @@
 <template>
-  <div className="updateuser">
+  <div class="updateuser">
     <h1>Update Contact</h1>
     <div class="container" v-if="loadedData">
       <table class="table table-striped">
@@ -67,7 +67,9 @@
     </div>
     <br>
     <router-link to="/users">
-      <button type="submit" @click="updateToAPI">Submit</button>
+      <v-btn color="#f7bedb" class="mr-4" @click="updateToAPI">
+        Submit
+      </v-btn>
     </router-link>
     <!-- @click == v-on:click -->
   </div>
@@ -119,11 +121,11 @@ export default {
 </script>
 
 <style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
+
+.updateuser {
+  min-height: 100vh;
+  padding-top: 30px;
+  display: block;
+  align-items: center;
 }
 </style>
