@@ -1,27 +1,19 @@
 <template>
-  <v-container class="users">
+  <div class="users">
 
     <!--    search bar-->
 
-    <v-container>
-      <v-row>
-        <v-col>
-          <v-text-field
-              v-model="search"
-              label="Filter by first/last name"
-              outlined
-              dense
-          ></v-text-field>
-        </v-col>
-      </v-row>
-    </v-container>
-    <v-container>
+    <div class="container-search">
+      <div class="search-bar">
+        <v-input fluid action="Search" v-model="search" placeholder="Filter by first/last name" />
+      </div>
       <div class="add-button">
         <router-link :to="{path:'adduser'}">
           <v-button fluid color="orange">+ Add</v-button>
         </router-link>
       </div>
-    </v-container>
+    </div>
+
     <!--    body-->
 
     <div class="container-card">
