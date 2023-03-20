@@ -3,13 +3,21 @@
 
     <!--    search bar-->
 
-    <div class="container-search">
-      <div class="search-bar">
-        <sui-input fluid action="Search" v-model="search" placeholder="Filter by first/last name" />
-      </div>
+    <v-container>
+      <v-row>
+        <v-col>
+          <v-text-field
+              v-model="search"
+              label="Filter by first/last name"
+              outlined
+              dense
+          ></v-text-field>
+        </v-col>
+      </v-row>
+    </v-container>
       <div class="add-button">
         <router-link :to="{path:'adduser'}">
-          <sui-button fluid color="orange">+ Add</sui-button>
+          <v-button fluid color="orange">+ Add</v-button>
         </router-link>
       </div>
     </div>
