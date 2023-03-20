@@ -5,11 +5,11 @@
 
     <div class="container-search">
       <div class="search-bar">
-        <v-input fluid action="Search" v-model="search" placeholder="Filter by first/last name" />
+        <sui-input fluid action="Search" v-model="search" placeholder="Filter by first/last name" />
       </div>
       <div class="add-button">
         <router-link :to="{path:'adduser'}">
-          <v-button fluid color="orange">+ Add</v-button>
+          <sui-button fluid color="orange">+ Add</sui-button>
         </router-link>
       </div>
     </div>
@@ -19,7 +19,7 @@
     <div class="container-card">
       <div class="card-box">
         <v-row>
-          <v-col cols="4" v-for="auser in filterUsers" v-bind:key="auser.id" class="d-flex">
+          <v-col cols="2" v-for="auser in filterUsers" v-bind:key="auser.id" class="d-flex">
             <v-card class="elevation-5 flex d-flex flex-column"
                     max-width="374" >
               <v-img
