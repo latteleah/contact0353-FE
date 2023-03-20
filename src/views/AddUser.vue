@@ -1,6 +1,6 @@
 <template>
   <div class="adduser">
-    <h1>Add User</h1>
+    <h1>Add User page</h1>
     <v-container>
       <v-form ref="form" v-model="valid" lazy-validation>
         <v-text-field
@@ -90,13 +90,13 @@ export default{
       if (this.$refs.form.validate()) {
         try {
           console.log(this.user)
-          axios.post(process.env.BACKEND_URL + '/contacts' , this.user)
+          axios.post(process.env.BACKEND_URL + '/users' , this.user)
               .then((response) => {
                 console.log(response)
               }).catch((error) => {
             console.log(error)
           })
-          this.$router.push('./contacts')
+          this.$router.push('./users')
         }
         catch (error) {
           this.errorMessage = error.response.data.message
@@ -106,7 +106,7 @@ export default{
     ,
     cancel(){
       this.$refs.form.reset()
-      this.$router.push('./contacts')
+      this.$router.push('./users')
     },
     reset(){
       this.$refs.form.reset()
@@ -116,14 +116,10 @@ export default{
 </script>
 <style>
 
-.adduser {
-  align-items: center;
-}
-@media (min-width: 600px) {
   .adduser {
-    display: inline-grid;
+    min-height: 100vh;
+    padding-top: 80px;
     align-items: center;
   }
-}
 
 </style>

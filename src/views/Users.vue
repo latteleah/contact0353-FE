@@ -67,7 +67,7 @@ export default {
     }
   },
   mounted() {
-    axios.get(process.env.BACKEND_URL+'/contacts')
+    axios.get(process.env.BACKEND_URL+'/users')
         .then((response)=>{
           console.log(response.data)
           this.Users = response.data
@@ -91,7 +91,7 @@ export default {
   },
   methods:{
     deleteUser(UserId) {
-      axios.delete(process.env.BACKEND_URL + "/contacts/"+UserId)
+      axios.delete(process.env.BACKEND_URL + "/users/"+UserId)
           .then((response)=>{
             console.log('Delete User Id: '+UserId)
             window.location.reload()

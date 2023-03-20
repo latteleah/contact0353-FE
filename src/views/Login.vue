@@ -53,7 +53,7 @@ export default {
           })
           const token = response.data.token
           localStorage.setItem('token', token)
-          this.$router.push('/contacts')
+          this.$router.push('/users')
 
         }
         catch (error) {

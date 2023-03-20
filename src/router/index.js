@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import contacts from '../views/Users.vue'
+import Users from '../views/Users.vue'
 import AddUser from '../views/AddUser.vue'
 import UpdateUser from '../views/UpdateUser.vue'
 import Login from '../views/Login.vue'
@@ -13,7 +13,7 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      redirect: '/contacts'
+      redirect: '/users'
     },
     {
       path: '/login',
@@ -27,7 +27,7 @@ const router = createRouter({
     },
     {
       path: '/:catchAll(.*)', //if user go to undefined path in this list
-      redirect: '/contacts'
+      redirect: '/users'
     },
     /*{
       path: '/about',
@@ -38,9 +38,9 @@ const router = createRouter({
       component: () => import('../views/AboutView.vue')
     },*/
     {
-      path: '/contacts',
-      name: 'contacts',
-      component: contacts
+      path: '/users',
+      name: 'users',
+      component: Users
     },
     {
       path : '/adduser',
