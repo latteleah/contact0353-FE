@@ -8,7 +8,7 @@ export default defineConfig({
   plugins: [vue()],
   define: {
     'process.env': {
-      BACKEND_URL: 'http://127.0.0.1:3000'
+      BACKEND_URL: 'https://contacts0353backend.cyclic.app/'
     }
   },
   resolve: {
