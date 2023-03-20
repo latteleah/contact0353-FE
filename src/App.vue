@@ -31,6 +31,7 @@ import HelloWorld from './components/HelloWorld.vue'
 </template>
 
 <style>
-
-
+.navbar{
+  padding-bottom: 50px;
+}
 </style>
