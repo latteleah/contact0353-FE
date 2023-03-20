@@ -90,13 +90,13 @@ export default{
       if (this.$refs.form.validate()) {
         try {
           console.log(this.user)
-          axios.post(process.env.BACKEND_URL + '/users' , this.user)
+          axios.post(process.env.BACKEND_URL + '/contacts' , this.user)
               .then((response) => {
                 console.log(response)
               }).catch((error) => {
             console.log(error)
           })
-          this.$router.push('./users')
+          this.$router.push('./contacts')
         }
         catch (error) {
           this.errorMessage = error.response.data.message
@@ -106,7 +106,7 @@ export default{
     ,
     cancel(){
       this.$refs.form.reset()
-      this.$router.push('./users')
+      this.$router.push('./contacts')
     },
     reset(){
       this.$refs.form.reset()

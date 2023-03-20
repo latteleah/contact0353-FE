@@ -66,7 +66,7 @@
       </table>
     </div>
     <br>
-    <router-link to="/users">
+    <router-link to="/contacts">
       <v-btn color="#f7bedb" class="mr-4" @click="updateToAPI">
         Submit
       </v-btn>
@@ -97,7 +97,7 @@ export default {
   methods: {
     updateToAPI() {
       console.log(this.User)
-      axios.post(process.env.BACKEND_URL + '/users/' + this.$route.params.userId, this.User)
+      axios.post(process.env.BACKEND_URL + '/contacts/' + this.$route.params.userId, this.User)
           .then((response) => {
             console.log(response)
           })
@@ -107,7 +107,7 @@ export default {
     }
   },
   mounted() {
-    axios.get(process.env.BACKEND_URL + '/users/' + this.$route.params.userId)
+    axios.get(process.env.BACKEND_URL + '/contacts/' + this.$route.params.userId)
         .then((response) => {
           console.log(response.data)
           this.User = response.data[0]
