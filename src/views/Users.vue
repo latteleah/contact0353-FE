@@ -89,7 +89,7 @@ export default {
       axios.delete(process.env.BACKEND_URL + "/users/"+UserId)
           .then((response)=>{
             console.log('Delete User Id: '+UserId)
-            this.$router.push('/users')
+            this.$router.push('./users')
           })
           .catch((error)=>{
             console.log(error)
