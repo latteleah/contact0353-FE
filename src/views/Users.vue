@@ -1,5 +1,5 @@
 <template>
-  <div class="users">
+  <v-container class="users">
 
     <!--    search bar-->
 
@@ -15,13 +15,13 @@
         </v-col>
       </v-row>
     </v-container>
+    <v-container>
       <div class="add-button">
         <router-link :to="{path:'adduser'}">
           <v-button fluid color="orange">+ Add</v-button>
         </router-link>
       </div>
-    </div>
-
+    </v-container>
     <!--    body-->
 
     <div class="container-card">
