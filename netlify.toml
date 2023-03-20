@@ -4,6 +4,10 @@
   functions = "netlify/functions"
   publish = "dist"
 
+[build.rollupOptions.external]
+  # Add the following line to exclude "bootstrap" from the bundle
+  bootstrap = "bootstrap"
+
   ## Uncomment to use this redirect for Single Page Applications like create-react-app.
   ## Not needed for static site generators.
   #[[redirects]]
