@@ -11,8 +11,8 @@ import 'vuetify/styles'
 import { createVuetify } from 'vuetify'
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
-import FomanticUI from 'vue-fomantic-ui'
-import 'fomantic-ui-css/semantic.min.css'
+//import FomanticUI from 'vue-fomantic-ui'
+//import 'fomantic-ui-css/semantic.min.css'
 
 const vuetify = createVuetify({
     components,
